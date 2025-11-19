@@ -8,6 +8,9 @@ import authRoutes from './routes/auth.routes';
 import auditRoutes from './routes/audit.routes';
 import accountRoutes from './routes/account.routes';
 
+// Import middleware
+import { apiRateLimiter } from './middleware/rateLimit.middleware';
+
 const app: Application = express();
 
 // Security middleware
@@ -16,6 +19,9 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true
 }));
+
+// Rate limiting middleware
+app.use('/api/', apiRateLimiter);
 
 // Logging middleware
 app.use(morgan('dev'));
