@@ -32,42 +32,10 @@ A production-ready, AI-powered SaaS platform that automatically audits websites 
 - Node.js 18+ and npm
 - PostgreSQL 15+
 - Redis 7+
-- Docker and Docker Compose (optional but recommended)
 
 ## 🛠️ Quick Start
 
-### Option 1: Using Docker (Recommended)
-
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd seo
-```
-
-2. **Set up environment variables**
-```bash
-# Backend
-cp backend/.env.example backend/.env
-# Edit backend/.env with your configuration
-
-# Frontend
-cp frontend/.env.example frontend/.env
-# Edit frontend/.env with your configuration
-```
-
-3. **Start all services**
-```bash
-docker-compose up -d
-```
-
-4. **Access the application**
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000
-- Database: localhost:5432
-
-### Option 2: Manual Setup
-
-#### Backend Setup
+### Backend Setup
 
 1. **Install dependencies**
 ```bash
@@ -124,7 +92,6 @@ seo/
 │   │   ├── types/          # TypeScript type definitions
 │   │   ├── app.ts          # Express app configuration
 │   │   └── server.ts       # Server entry point
-│   ├── Dockerfile
 │   └── package.json
 │
 ├── frontend/               # React/TypeScript UI
@@ -139,17 +106,14 @@ seo/
 │   │   ├── types/          # TypeScript interfaces
 │   │   ├── App.tsx         # Main app component
 │   │   └── main.tsx        # Entry point
-│   ├── Dockerfile
-│   ├── nginx.conf
 │   └── package.json
 │
 ├── database/               # Database schemas and migrations
 │   ├── schema.sql          # Complete database schema
 │   ├── seed.sql            # Seed data for development
-│   └── README.md
+│   └── migrations/         # Database migration files
 │
 ├── docs/                   # Additional documentation
-├── docker-compose.yml      # Docker orchestration
 └── README.md              # This file
 ```
 
