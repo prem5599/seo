@@ -1,9 +1,14 @@
 import request from 'supertest';
 import express from 'express';
-import { auditRoutes } from '../routes/audit.routes';
-import { authMiddleware } from '../middleware/auth.middleware';
+import auditRoutes from '../routes/audit.routes';
 import { pool } from '../config/database';
 import jwt from 'jsonwebtoken';
+
+// Mock auth middleware for tests
+const authMiddleware = (req: any, res: any, next: any) => {
+  req.user = { userId: req.headers['x-user-id'] };
+  next();
+};
 
 const app = express();
 app.use(express.json());

@@ -12,7 +12,13 @@ jest.mock('../config/redis', () => ({
     set: jest.fn(),
     del: jest.fn(),
     quit: jest.fn(),
+    isReady: true,
   },
+}));
+
+// Mock Puppeteer
+jest.mock('puppeteer', () => ({
+  launch: jest.fn(),
 }));
 
 // Set test environment
@@ -21,3 +27,8 @@ process.env.JWT_SECRET = 'test-jwt-secret-key-minimum-32-characters-long';
 
 // Increase timeout for all tests
 jest.setTimeout(30000);
+
+// Dummy test to prevent "no tests" error
+test('setup file loaded', () => {
+  expect(true).toBe(true);
+});

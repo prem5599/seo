@@ -1,6 +1,6 @@
 import request from 'supertest';
 import express from 'express';
-import { authRoutes } from '../routes/auth.routes';
+import authRoutes from '../routes/auth.routes';
 import { pool } from '../config/database';
 
 const app = express();

@@ -14,10 +14,16 @@
     "lint": "eslint src --ext .ts",
     "clean": "rm -rf dist"
   },
-  "keywords": ["seo", "audit", "saas", "api"],
+  "keywords": [
+    "seo",
+    "audit",
+    "saas",
+    "api"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@types/pg": "^8.15.6",
     "axios": "^1.13.2",
     "bcryptjs": "^3.0.3",
     "bull": "^4.16.5",
