@@ -8,6 +8,9 @@ import authRoutes from './routes/auth.routes';
 import auditRoutes from './routes/audit.routes';
 import accountRoutes from './routes/account.routes';
 
+// Import middleware
+import { apiRateLimiter } from './middleware/rateLimit.middleware';
+
 const app: Application = express();
 
 // Security middleware
@@ -17,6 +20,9 @@ app.use(cors({
   credentials: true
 }));
 
+// Rate limiting middleware
+app.use('/api/', apiRateLimiter);
+
 // Logging middleware
 app.use(morgan('dev'));
 
@@ -25,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({
     status: 'success',
     message: 'Server is running',
@@ -47,7 +53,7 @@ app.use('*', (req: Request, res: Response) => {
 });
 
 // Global error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Error:', err);
   res.status(500).json({
     status: 'error',

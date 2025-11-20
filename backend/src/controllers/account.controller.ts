@@ -91,14 +91,14 @@ export const getSubscription = async (req: AuthRequest, res: Response): Promise<
   }
 };
 
-export const upgradeSubscription = async (req: AuthRequest, res: Response): Promise<void> => {
+export const upgradeSubscription = async (_req: AuthRequest, res: Response): Promise<void> => {
   res.status(200).json({
     status: 'success',
     message: 'Upgrade subscription endpoint - to be implemented with Stripe'
   });
 };
 
-export const cancelSubscription = async (req: AuthRequest, res: Response): Promise<void> => {
+export const cancelSubscription = async (_req: AuthRequest, res: Response): Promise<void> => {
   res.status(200).json({
     status: 'success',
     message: 'Cancel subscription endpoint - to be implemented with Stripe'
