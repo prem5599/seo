@@ -1,5 +1,5 @@
 import { query } from '../config/database';
-import crawlerService, { CrawlResult } from './crawler.service';
+import crawlerService from './crawler.service';
 import recommendationService from './recommendation.service';
 
 export class AuditService {

@@ -29,7 +29,7 @@ const requiredEnvVars = [
   'FRONTEND_URL',
 ];
 
-const optionalEnvVars = [
+const _optionalEnvVars = [
   'GOOGLE_PAGESPEED_API_KEY',
   'MOZ_ACCESS_ID',
   'MOZ_SECRET_KEY',

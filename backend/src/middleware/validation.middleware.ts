@@ -6,14 +6,15 @@ export const handleValidationErrors = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Bad Request',
       message: 'Invalid request parameters',
       details: errors.array().map((err) => err.msg),
     });
+    return;
   }
   next();
 };

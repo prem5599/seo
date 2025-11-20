@@ -1,6 +1,6 @@
 import rateLimit from 'express-rate-limit';
 import { RedisStore } from 'rate-limit-redis';
-import { redisClient } from '../config/redis';
+import redisClient from '../config/redis';
 import { Request, Response } from 'express';
 
 // Rate limit configuration based on subscription plans
@@ -49,7 +49,7 @@ export const apiRateLimiter = rateLimit({
     const user = (req as any).user;
     return user?.id || req.ip || 'unknown';
   },
-  handler: (req: Request, res: Response) => {
+  handler: (_req: Request, res: Response) => {
     res.status(429).json({
       error: 'Too Many Requests',
       message: 'Rate limit exceeded. Please try again later.',
@@ -70,7 +70,7 @@ export const authRateLimiter = rateLimit({
   legacyHeaders: false,
   store: store,
   skipSuccessfulRequests: true, // Don't count successful requests
-  handler: (req: Request, res: Response) => {
+  handler: (_req: Request, res: Response) => {
     res.status(429).json({
       error: 'Too Many Requests',
       message: 'Too many authentication attempts. Please try again after 15 minutes.',
@@ -107,7 +107,7 @@ export const auditRateLimiter = rateLimit({
     const user = (req as any).user;
     return user?.id || req.ip || 'unknown';
   },
-  handler: (req: Request, res: Response) => {
+  handler: (_req: Request, res: Response) => {
     res.status(429).json({
       error: 'Too Many Requests',
       message: 'Too many audit requests. Please wait before creating another audit.',

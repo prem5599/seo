@@ -5,7 +5,7 @@ import { pool } from '../config/database';
 import jwt from 'jsonwebtoken';
 
 // Mock auth middleware for tests
-const authMiddleware = (req: any, res: any, next: any) => {
+const authMiddleware = (req: any, _res: any, next: any) => {
   req.user = { userId: req.headers['x-user-id'] };
   next();
 };
