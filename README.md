@@ -35,7 +35,25 @@ A production-ready, AI-powered SaaS platform that automatically audits websites 
 
 ## 🛠️ Quick Start
 
-### Backend Setup
+### 🎭 Option 1: Frontend Only (Demo Mode - No Backend Required!)
+
+Perfect for UI development, demos, or quick preview:
+
+```bash
+cd frontend
+npm install
+npm run dev:demo
+```
+
+Open http://localhost:5173 and explore with mock data! ✨
+
+**📖 [See full demo mode documentation](./FRONTEND_STANDALONE.md)**
+
+---
+
+### 💻 Option 2: Full Stack (With Backend)
+
+#### Backend Setup
 
 1. **Install dependencies**
 ```bash
