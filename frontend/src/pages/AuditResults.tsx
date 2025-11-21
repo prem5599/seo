@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
-import { Audit, Issue } from '../types';
+import type { Audit, Issue } from '../types';
 import { AlertCircle, CheckCircle, Info, ArrowLeft, Download } from 'lucide-react';
 
 export default function AuditResults() {

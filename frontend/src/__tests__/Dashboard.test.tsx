@@ -2,10 +2,16 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
-import * as api from '../services/api';
+import api from '../services/api';
 
 // Mock the API module
-vi.mock('../services/api');
+vi.mock('../services/api', () => ({
+  default: {
+    getAudits: vi.fn(),
+    createAudit: vi.fn(),
+    deleteAudit: vi.fn(),
+  },
+}));
 
 const renderDashboard = () => {
   return render(

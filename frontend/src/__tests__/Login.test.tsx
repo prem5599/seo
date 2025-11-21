@@ -2,10 +2,15 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Login from '../pages/Login';
-import * as api from '../services/api';
+import api from '../services/api';
 
 // Mock the API module
-vi.mock('../services/api');
+vi.mock('../services/api', () => ({
+  default: {
+    login: vi.fn(),
+    register: vi.fn(),
+  },
+}));
 
 const renderLogin = () => {
   return render(

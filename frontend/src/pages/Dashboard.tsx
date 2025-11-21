@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
-import { Audit } from '../types';
+import type { Audit } from '../types';
 import { Search, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react';
 
 export default function Dashboard() {

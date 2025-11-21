@@ -16,7 +16,7 @@ class MockApiService {
   }
 
   // Auth endpoints
-  async register(email: string, password: string) {
+  async register(email: string, _password: string) {
     await this.delay(800);
     const token = `mock_token_${Date.now()}`;
     localStorage.setItem('token', token);
@@ -29,11 +29,11 @@ class MockApiService {
     };
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, _password: string) {
     await this.delay(600);
 
     // Simulate login validation
-    if (!email || !password) {
+    if (!email || !_password) {
       throw new Error('Email and password are required');
     }
 
@@ -75,7 +75,7 @@ class MockApiService {
     };
   }
 
-  async createAudit(url: string, maxPages?: number) {
+  async createAudit(url: string, _maxPages?: number) {
     await this.delay(1000);
     const newAudit = {
       id: `mock_${Date.now()}`,
@@ -102,7 +102,7 @@ class MockApiService {
     };
   }
 
-  async deleteAudit(id: string) {
+  async deleteAudit(_id: string) {
     await this.delay(400);
     return {
       status: 'success',
@@ -110,7 +110,7 @@ class MockApiService {
     };
   }
 
-  async getAuditIssues(id: string) {
+  async getAuditIssues(_id: string) {
     await this.delay(600);
     return {
       status: 'success',

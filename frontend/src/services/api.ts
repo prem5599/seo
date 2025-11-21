@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { type AxiosInstance } from 'axios';
 import mockApi from './mockApi';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
